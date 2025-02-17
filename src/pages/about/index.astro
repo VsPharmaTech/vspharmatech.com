@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MainHero from "../../components/ui/Mainhero" 
+import Who from '../../components/Aboutsection/Who.tsx'
+import Statcounter from "../../components/ui/Statcounter"
+import Advantage from "../../components/Aboutsection/Advantage.tsx"
+import Values from '../../components/Aboutsection/Values.tsx'
+import BrochureCta from '../../components/ui/Brochurecta'
+---
+
+<Layout title="VS Pharmatech">
+	<main>
+	
+			<MainHero client:load
+			  title="About Us"
+			  heading="Discover Our Legacy of Excellence in BFS Technology"
+			  description="Learn more about our history, mission and expertise in delivering exceptional BFS solutions."
+			  scrollToId="whoarewe"
+			/>
+
+			<Who client:visible/>
+		<Statcounter client:visible />
+		<Advantage client:visible/>
+		<Values client:visible/>
+		<BrochureCta />
+		
+	</main>
+  </Layout>

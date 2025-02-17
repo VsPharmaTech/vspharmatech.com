@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PHero from '../../components/Productsection/Producthero'
+import Headline from '../../components/ui/Headline'
+import ProductTags from '../../components/Productsection/Producttags'
+import BrochureCta from "../../components/ui/Brochurecta"
+
+
+---
+
+<Layout title="VS Pharma Tech">
+  <main>
+    <PHero client:load />
+    <Headline client:visible text="Note: Our machines are manufactured to meet all international standards including USFDA, CGMP & WHO compliance." />
+    <ProductTags client:visible/>
+    <BrochureCta>
+  </main>
+</Layout>
+
+

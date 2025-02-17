@@ -1,0 +1,40 @@
+---
+import Hero from '../components/Homesection/Hero';
+import HomeAbout from '../components/Homesection/Homeabout'
+import HomeProducts from '../components/Homesection/Homeproducts'
+import OurServices from '../components/Homesection/Ourservices';
+import Material from "../components/Homesection/Material"
+import Statcounter from '../components/ui/Statcounter'
+import Process from '../components/Homesection/Ourprocess'
+import VideoPlayer from '../components/ui/Videoplayer'
+import Features from '../components/Homesection/FeaturesCarousel/features'
+import Solution from '../components/Homesection/Solution'
+import Headline from '../components/ui/Headline'
+import Industries from '../components/Homesection/Industries'
+import Testimonials from '../components/ui/Testimonials'
+import Faq from '../components/Homesection/Faq'
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout title="VS Pharma Tech">
+	<main>
+	  <Hero client:load />
+	  <HomeAbout client:visible/>
+	  <HomeProducts client:visible />
+	  <Material client:visible/>
+
+
+	  <Statcounter client:visible />
+
+	  <OurServices client:visible/>
+	  <Process client:visible />
+	  <VideoPlayer client:visible/>
+	  <Features client:visible/>
+	  <Solution client:visible/>
+	  <Headline client:visible text="Note: For any uncontrollable flaws, feel free to reach out to us for simplified and effective solutions." />
+	  <Industries client:load />
+	  <Testimonials client:visible/>
+	  <Faq client:load/>
+	</main>
+  </Layout>

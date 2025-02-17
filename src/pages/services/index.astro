@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Servicesection/Servicehero'
+import ServiceDetail from '../../components/Servicesection/Servicedetail'
+import Testimonials from '../../components/ui/Testimonials'
+
+---
+
+<Layout title="VS Pharmatech">
+	<main>
+	  <Hero client:load/>
+
+	  <section class="text-center py-4 sm:py-16 px-6 mt-12">
+		<span class="text-secondary font-lora font-bold text-base sm:text-lg">
+		  Our Services
+		</span>
+	  
+		<h1 class="font-raleway text-3xl sm:text-5xl font-bold text-navy-900 mt-2 sm:mt-3">
+		  Our <span class="bg-gradient-to-r from-blue-500 to-blue-800 text-transparent bg-clip-text font-bold"> Specialized Solutions </span> & Support
+		</h1>
+	  
+		<p class="mt-3 text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+		  Comprehensive Care and Specialized Services to Maximize the Potential of Your Operations
+		</p>
+	  </section>
+	  
+	  <ServiceDetail client:visible
+  title="Machine Refurbishment & Upgradation"
+  heading="Breathe New Life into Your Existing Equipment"
+  description="Outdated equipment can hinder your operations and increase costs. Our refurbishment services breathe new life into your BFS machines, enhancing their performance and reliability without the expense of purchasing new equipment. We offer:"
+  imageSrc="/Machine-Refurbish.png"
+  points={[
+    "Replace outdated components with the latest technology, such as advanced servo systems and SCADA controls.",
+    "Automate cleaning and sterilization processes with online CIP/SIP systems.",
+    "Upgrade molds, parison heads, and other critical parts to improve efficiency and output.",
+  ]}
+/>;
+
+<ServiceDetail client:visible
+  title="Diagnostics & Technical Assistance"
+  heading="Expert Assistance Whenever You Need"
+  description="Modern BFS systems require fast and efficient support to minimize disruptions. Our advanced SCADA and HMI systems allow us to provide remote diagnostics and assistance whenever you need it. We offer:"
+  imageSrc="/Expert-Assist.png"
+  points={[
+    "Software updates and system diagnostics to keep your machines up to date.",
+    "Real-time remote monitoring and troubleshooting of error codes and alarms.",
+    "Online updates for machine parameters and control systems.",
+  ]}
+/>;
+
+<ServiceDetail client:visible
+  title="Annual Maintenance Contracts (AMC’s)"
+  heading="Comprehensive Care for Your BFS Systems"
+  description="Proactive maintenance is the key to preventing unexpected breakdowns and ensuring the consistent performance of your BFS systems. Our AMCs provide comprehensive care to keep your machines running at peak efficiency year after year. We offer:"
+  imageSrc="/Comprehensive-Care.png"
+  points={[
+    "Routine inspections and preventive maintenance to avoid costly breakdowns.",
+    "Calibration and testing of critical components like filling systems, servo motors, and control panels.",
+    "Access to skilled technicians for on-site repairs and servicing.",
+  ]}
+/>;
+
+<ServiceDetail client:visible
+  title="Machine Installation and Training"
+  heading="Empowering Teams for Seamless Integration"
+  description="Proper installation and commissioning are critical to the success of your BFS operations. Our expert technicians ensure that your machines are set up correctly and provide training programs to your teams. We offer:"
+  imageSrc="/Empower-Teams.png"
+  points={[
+    "Full site preparation and machine installation by our skilled technicians.",
+    "Hands-on training for machine operators, maintenance staff, and supervisors.",
+    "Initial production trials to validate functionality and ensure compliance.",
+  ]}
+/>;
+
+<Testimonials client:visible/>
+
+	</main>
+  </Layout>

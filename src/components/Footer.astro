@@ -1,0 +1,88 @@
+---
+const quickLinks = [
+  { label: 'Home Page', href: '/' },
+  { label: 'Our Products', href: '/products' },
+  { label: 'Our Services', href: '/services' },
+  { label: 'BFS Technology', href: '/bfstechnology' },
+];
+
+
+const helpLinks = [
+  { label: "FAQ's", href: '/#faq' },
+  { label: 'Guidelines', href: '/#guideline' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact Us', href: '/contact' },
+];
+---
+
+<footer class="bg-blue-800 text-white py-8 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 xl:px-16">
+    <div class="grid lg:grid-cols-3 justify-center text-center lg:text-left space-y-12">
+      <!-- Company Info -->
+      <div class="space-y-3 sm:space-y-4 lg:space-y-6">
+        <div class="flex items-center justify-center lg:justify-start">
+          <img src="/vs-logo.png" alt="VS Pharmatech" class="w-auto h-10 lg:h-12 brightness-0 invert pr-2" />
+          <h2 class="text-xl font-bold">VS Pharmatech</h2>
+        </div>
+        <p class="text-base text-gray-100">
+          Leading manufacturer & exporter of BLOW-FILL-SEAL MACHINES & MOULDS for LARGE & SMALL VOLUME PARENTERALS.
+        </p>
+        <div class="flex justify-center lg:justify-start space-x-3 sm:space-x-4">
+          <a href="#" class="hover:opacity-80 transition-opacity">
+            <img src="/twitter-icon.png" alt="Twitter" class="w-6 h-6 brightness-0 invert" />
+          </a>
+          <a href="#" class="hover:opacity-80 transition-opacity">
+            <img src="/facebook-icon.png" alt="Facebook" class="w-6 h-6 brightness-0 invert" />
+          </a>
+          <a href="#" class="hover:opacity-80 transition-opacity">
+            <img src="/whatsapp-icon.png" alt="WhatsApp" class="w-6 h-6 brightness-0 invert" />
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 justify-items-center">
+
+      <!-- Quick Links -->
+      <div class="space-y-2 sm:space-y-3 text-left">
+        <h3 class="text-base sm:text-lg font-bold">QUICK LINKS</h3>
+        <ul class="space-y-1 sm:space-y-2">
+          {quickLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-gray-100 hover:text-white transition-colors text-base">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Help -->
+      <div class="space-y-2 sm:space-y-3 text-left">
+        <h3 class="text-base sm:text-lg font-bold">HELP</h3>
+        <ul class="space-y-1 sm:space-y-2">
+          {helpLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-gray-100 hover:text-white transition-colors text-base">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+
+
+      <!-- Address (Separate Column) -->
+      <div class="space-y-2 sm:space-y-3">
+        <h3 class="text-base sm:text-lg font-bold">MFG. PLANT & OFFICE</h3>
+        <address class="text-base not-italic text-gray-100 leading-relaxed ">
+          A/6 & 7, ABM Industrial Estate, Naik Pada Link Road, Near VRL Logistics Ltd., Behind Sathivali Road, Vasai East, Dist-Palghar, Maharashtra, Pin- 400208, India.
+        </address>
+        <div class="mt-6 text-base font-bold">
+          <p>Mobile: +91 8087 210 739 / 9879 226 692</p>
+          <p>Email: info.vspharmatech@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

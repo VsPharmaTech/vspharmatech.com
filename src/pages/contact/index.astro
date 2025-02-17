@@ -1,0 +1,33 @@
+---
+
+import Layout from '../../layouts/Layout.astro';
+import MainHero from '../../components/ui/Mainhero'
+import ContactForm from "../../components/Contactsection/Contactform"
+
+
+---
+
+<Layout title="VS Pharmatech">
+	<main>
+
+	<MainHero client:load
+			  title="Contact Us"
+			  heading="Get in Touch with Our Team"
+			  description="Have questions or need any assistance? Reach out to us and let's start the conversation."
+			  scrollToId="contactform"
+			/>
+
+    <ContactForm client:load/>
+
+    <div class="w-full h-120 overflow-hidden mt-12">
+	<iframe 
+	class="w-full h-full"
+	src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235.18771455444545!2d72.87040008157389!3d19.41225765062094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7a9c347004bbd%3A0xe72909c4d6465f55!2sABM%20Industries!5e0!3m2!1sen!2sin!4v1739374771238!5m2!1sen!2sin" 
+	allowfullscreen
+	loading="lazy" 
+	referrerpolicy="no-referrer-when-downgrade">
+	</iframe>
+	</div>
+
+	</main>
+  </Layout>

@@ -1,0 +1,64 @@
+---
+// Navmenu.astro
+import Button from './ui/CustomButton';
+import HamburgerMenu from './ui/Hamburger';
+
+const menuItems = [
+  { label: 'Home', href: '/' },
+  { label: 'BFS Technology', href: '/bfstechnology' },
+  { label: 'Products', href: '/products' },
+  { label: 'Services', href: '/services' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact Us', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="bg-white py-1 sm:py-2 lg:py-4 shadow-sm">
+  <div class="flex justify-between items-center mx-3 sm:mx-4 md:mx-6 lg:mx-8 xl:mx-12 gap-6">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <a href="/" class="flex items-center">
+        <img src="/vs-logo.png" alt="VS Logo" class="h-10 sm:h-12 w-auto mr-2" />
+        <div class="text-gray-600 hidden sm:flex lg:hidden xl:flex font-roboto font-medium text-sm whitespace-nowrap">
+          BFS Technology Specialist
+        </div>
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
+      {menuItems.map((item) => {
+        const isActive = currentPath === item.href;
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'text-gray-600 text-base font-roboto hover:text-blue-600 transition-colors',
+              { 'text-blue-600 font-semibold': isActive }, // Highlight if active
+            ]}
+            data-href={item.href}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- Get a Quote Button (Desktop) -->
+    <div class="hidden lg:block">
+      <Button href="/contact/#contactform">
+        <span class="flex items-center gap-x-2">
+          <img class="h-full hidden xl:flex" src="/Chatcloud.svg" />
+          Get a quote
+        </span>
+      </Button>
+    </div>
+
+    <!-- Mobile Hamburger Menu -->
+    <div class="lg:hidden">
+      <HamburgerMenu menuItems={menuItems} client:load currentPath={currentPath}/>
+    </div>
+  </div>
+</nav>
