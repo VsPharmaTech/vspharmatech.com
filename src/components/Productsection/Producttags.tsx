@@ -153,37 +153,42 @@ const ProductTags: React.FC = () => {
                 rows: [],
             },
             galleryImages: [
-                'https://pplx-res.cloudinary.com/image/upload/v1739131203/user_uploads/dAsSTBRLvSHHYGu/image.jpg',
-                'https://pplx-res.cloudinary.com/image/upload/v1739130812/user_uploads/hZrWEwZHYiVIYaQ/image.jpg',
+                './Mould-Carriage.png',
+                './Extruder-Head.png',
+                './Hot-Knife.png',
+                './Products2.png',
+                './The-Mould.png',
+                './Closing-Unit.png',
             ],
 
-            imageTitle: ['', 'MODEL', 'STATION', 'MOULDS', 'CONTAINER', 'OUTPUT/HR'],
+            imageTitle: ['Mould Carriage', 'Extruder Head', 'Cutting Device','Parison Holder', 'The Moulds', 'Mould Closing Unit'],
 
             additionalDescription: 'Custom moulds designed to meet your specific requirements.',
         },
 
         {
             title: 'Industry based Finished Products',
-            description: 'Automated inspection systems for furnished products',
+            description: 'Our BFS technology enables the production of a wide range of industry-specific finished products, ensuring sterility, precision, and compliance with global pharmaceutical standards. From injectables to IV fluids, our BFS solutions cater to the highest demands of the pharmaceutical, biotech, and healthcare industries.',
             imageSrc:
-                'https://pplx-res.cloudinary.com/image/upload/v1739128718/user_uploads/MAxEbtPvIwxePqI/image.jpg',
+                './Finishedproducts.jpg',
             category: 'Finished Products',
-            features: ['High-speed inspection', 'Accurate defect detection', 'Real-time data analysis'],
+            features: ['Supports various container shapes, sizes, and dosing formats, tailored to meet the specific Industry applications.', 'Sealed, sterile environment, eliminating human intervention and minimizing contamination risks.', 'Regulatory Compliance and High-Quality Standards'],
             tableData: {
-                header: ['Parameter', 'Value'],
-                rows: [
-                    ['Speed', 'Up to 1000 products/hour'],
-                    ['Accuracy', '99.9%'],
-                ],
+                header: [],
+                rows: [],
             },
             galleryImages: [
-                'https://pplx-res.cloudinary.com/image/upload/v1739131203/user_uploads/dAsSTBRLvSHHYGu/image.jpg',
-                'https://pplx-res.cloudinary.com/image/upload/v1739130812/user_uploads/hZrWEwZHYiVIYaQ/image.jpg',
+                './Healthcare1.png',
+                './Healthcare2.png',
+                './Healthcare3.png',
+                './Healthcare4.png',
+                'Wellness3.png',
+                'Missc1.png',
             ],
 
-            imageTitle: ['', 'MODEL', 'STATION', 'MOULDS', 'CONTAINER', 'OUTPUT/HR'],
+            imageTitle: ['Opthalmics', 'Injectables', 'Infusions', 'Inhalation Solutions', 'Foods & Juices', 'Polymer Resins'],
 
-            additionalDescription: 'Ensure quality with our advanced inspection systems.',
+            additionalDescription: 'Sterile and Customizable Finished Products',
         },
     ];
 
