@@ -14,13 +14,13 @@ const industries: Industry[] = [
   { title: "Infusions", image: "/Healthcare3.png", category: "healthcare" },
   { title: "Inhalation Solutions", image: "/Healthcare4.png", category: "healthcare" },
   { title: "Vitamins & Juices", image: "/Wellness3.png", category: "consumer" },
-  { title: "Cosmetics", image: "/Wellness2.png", category: "consumer" },
+  // { title: "Cosmetics", image: "/Wellness2.png", category: "consumer" },
   { title: "Personal Care", image: "/Wellness4.jpg", category: "consumer" },
   { title: "Nutraceuticals", image: "/Wellness1.png", category: "consumer" },
-  { title: "Industrial Lubricants", image: "/Miss1.png", category: "miscellaneous" },
-  { title: "Specialty Chemicals", image: "/Miss2.png", category: "miscellaneous" },
-  { title: "Adhesives & Sealants", image: "/image10.png", category: "miscellaneous" },
-  { title: "Coatings", image: "/image11.png", category: "miscellaneous" },
+  { title: "Polymer Resins", image: "/Missc1.png", category: "miscellaneous" },
+  // { title: "Specialty Chemicals", image: "/Miss2.png", category: "miscellaneous" },
+  // { title: "Adhesives & Sealants", image: "/image10.png", category: "miscellaneous" },
+  // { title: "Coatings", image: "/image11.png", category: "miscellaneous" },
 ];
 
 export default function Industries() {

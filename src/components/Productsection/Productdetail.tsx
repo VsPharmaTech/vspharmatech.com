@@ -39,7 +39,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-xl shadow-lg sm:mx-auto max-w-auto lg:max-w-4xl p-6 md:p-8" data-aos="fade-up">
+    <div className="relative overflow-hidden rounded-xl shadow-lg sm:mx-auto max-w-auto lg:max-w-5xl p-6 md:p-8" data-aos="fade-up">
       {/* Background Gradient */}
       <img
         src="/Background-gradient-u.svg"
@@ -94,10 +94,10 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
               className={`w-4 h-4 ml-1 sm:ml-2 transform transition-transform duration-300`}
             />
           </button>
-          <button className="flex items-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 sm:px-6 rounded transition-colors duration-300 hover:shadow-md text-base">
+          <a href="/contact/#contactform" className="flex items-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 sm:px-6 rounded transition-colors duration-300 hover:shadow-md text-base">
             Get a Quote
             <img src="/Chatcloud.svg" alt="arrow" className="w-4 h-4 ml-1 sm:ml-2" />
-          </button>
+          </a>
         </div>
 
         {/* Expanded Section */}
