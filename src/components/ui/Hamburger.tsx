@@ -61,7 +61,7 @@ const HamburgerMenu: React.FC<Props> = ({ menuItems, currentPath }) => {
             <button onClick={toggleMenu} className="focus:outline-none">
               {/* Close Icon */}
               <img
-                src="/Close.png" // Path to your cross icon in the public directory
+                src="/Close.svg" // Path to your cross icon in the public directory
                 alt="Close"
                 className="w-6 h-6 text-gray-700"
               />
