@@ -89,6 +89,7 @@ export default function Material() {
             src="/MachineM.png"
             alt="BFS Machine"
             className="w-full h-auto rounded-lg shadow-lg"
+            loading="lazy"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}

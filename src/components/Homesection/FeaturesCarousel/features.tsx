@@ -1,98 +1,62 @@
-import { useEffect, useRef, useState, useCallback } from "react";
-import { motion, useAnimationControls } from "framer-motion";
+"use client";
+
+import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import type { Feature } from "./types.ts";
 import { features } from "./features-data.ts";
 
 export default function Features() {
-  const [isPaused, setIsPaused] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const controls = useAnimationControls();
-  const [activeFeature, setActiveFeature] = useState<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [maxScrollX, setMaxScrollX] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Duplicate the features array three times to ensure smooth infinite scroll
-  const duplicatedFeatures = [...features, ...features, ...features];
-
-  const pauseOnHover = useCallback(() => {
-    setIsPaused(true);
-  }, []);
-
-  const resumeOnLeave = useCallback(() => {
-    setIsPaused(false);
-  }, []);
-
+  // Detect mobile
   useEffect(() => {
-    const scrollWidth = containerRef.current?.scrollWidth || 0;
-    const viewportWidth = containerRef.current?.offsetWidth || 0;
-    const scrollDistance = -(scrollWidth / 3); // Scroll one-third of the total width
-
-    const startAnimation = async () => {
-      if (isPaused) return;
-
-      await controls.start({
-        x: scrollDistance,
-        transition: {
-          duration: 30,
-          ease: "linear",
-          repeat: Number.POSITIVE_INFINITY,
-          repeatType: "loop",
-        },
-      });
-    };
-
-    startAnimation();
-
-    return () => {
-      controls.stop();
-    };
-  }, [controls, isPaused]);
-
-  useEffect(() => {
-    // Detect mobile devices using window.innerWidth
-    setIsMobile(window.innerWidth < 768); // Adjust breakpoint as needed
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  // Calculate max scrollable width
+  useEffect(() => {
+    const updateMaxScroll = () => {
+      if (!scrollContainerRef.current) return;
+      const scrollEl = scrollContainerRef.current;
+      const containerWidth = scrollEl.offsetWidth;
+      const scrollWidth = scrollEl.scrollWidth;
+      const maxScroll = scrollWidth - containerWidth;
+      setMaxScrollX(-Math.max(0, maxScroll));
+    };
+
+    updateMaxScroll();
+    window.addEventListener("resize", updateMaxScroll);
+    return () => window.removeEventListener("resize", updateMaxScroll);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start start", "end end"],
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], [0, maxScrollX]);
+  const progressBarWidth = useSpring(scrollYProgress, { stiffness: 100, damping: 20 });
 
   const FeatureCard = ({ feature }: { feature: Feature }) => {
     const [isHovered, setIsHovered] = useState(false);
-    const isExpanded = activeFeature === feature.id;
+    const [isExpanded, setIsExpanded] = useState(false);
 
-    const handleTouch = () => {
-      setActiveFeature((prevActiveFeature) =>
-        prevActiveFeature === feature.id ? null : feature.id
-      );
-      if (!isMobile) {
-        setIsPaused(!isExpanded); // Toggle pause state based on expansion - ONLY FOR WEB
-      }
-    };
-
-    const handleMouseEnter = () => {
-      if (!isMobile) {
-        setIsHovered(true); // ONLY FOR WEB
-      }
-    };
-
-    const handleMouseLeave = () => {
-      if (!isMobile) {
-        setIsHovered(false); // ONLY FOR WEB
-      }
-    };
+    const handleTouch = () => setIsExpanded((prev) => !prev);
+    const handleMouseEnter = () => !isMobile && setIsHovered(true);
+    const handleMouseLeave = () => !isMobile && setIsHovered(false);
 
     return (
       <div
-        className="relative flex-shrink-0 w-full sm:w-[300px] md:w-[350px] lg:w-[400px] h-[250px] sm:h-[300px] md:h-[330px] lg:h-[360px] mx-2 sm:mx-4 rounded-xl overflow-hidden group"
+        className="relative flex-shrink-0 w-full sm:w-[300px] md:w-[350px] lg:w-[400px] h-[250px] sm:h-[300px] md:h-[330px] lg:h-[360px] rounded-xl overflow-hidden group"
         onTouchStart={handleTouch}
-        onMouseEnter={!isMobile ? handleMouseEnter : undefined}
-        onMouseLeave={!isMobile ? handleMouseLeave : undefined}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         style={{ touchAction: "pan-y" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 transition-opacity duration-300" />
@@ -100,6 +64,7 @@ export default function Features() {
           src={feature.image}
           alt={feature.title}
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transition-all duration-300">
           <h3 className="text-white text-sm sm:text-base md:text-xl font-semibold">
@@ -127,36 +92,22 @@ export default function Features() {
   };
 
   return (
-    <section className="relative w-full py-16 md:py-20 overflow-hidden bg-gradient-to-b from-white to-blue-100">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-8">
-        <svg className="w-full h-full">
-          <pattern
-            id="grid"
-            width="40"
-            height="40"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M 40 0 L 0 0 0 40"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-            />
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
+    <section className="relative w-full h-[400vh]" ref={scrollRef}>
+      {/* Sticky content that scrolls horizontally */}
+      <div className="sticky top-0 h-screen flex flex-col justify-center bg-gradient-to-b from-white to-blue-100 overflow-hidden">
+        {/* Progress Bar */}
+        <motion.div
+          style={{ scaleX: progressBarWidth }}
+          className="origin-left h-[4px] bg-blue-600 w-full fixed top-0 left-0 z-50"
+        />
 
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
           <h4 className="text-secondary font-lora font-bold text-base sm:text-lg">
             Salient Features
           </h4>
           <h2 className="text-navy-900 font-raleway font-bold text-3xl sm:text-4xl md:text-5xl mt-2 sm:mt-3">
             <span className="bg-gradient-to-r from-blue-500 to-blue-800 text-transparent bg-clip-text font-bold">
-              {" "}
-              Innovative Features{" "}
+              Innovative Features
             </span>{" "}
             That Define our Excellence
           </h2>
@@ -166,23 +117,16 @@ export default function Features() {
           </p>
         </div>
 
-        {/* Features Carousel */}
-        <div
-          className="overflow-hidden"
-          ref={containerRef}
-          onMouseEnter={!isMobile ? pauseOnHover : undefined}
-          onMouseLeave={!isMobile ? resumeOnLeave : undefined}
+        {/* Card container with dynamic horizontal scroll */}
+        <motion.div
+          className="flex gap-6 mx-6"
+          ref={scrollContainerRef}
+          style={{ x }}
         >
-          <motion.div
-            className="flex"
-            animate={controls}
-            style={{ x: 0 }} // Reset initial position
-          >
-            {duplicatedFeatures.map((feature, index) => (
-              <FeatureCard key={`${feature.id}-${index}`} feature={feature} />
-            ))}
-          </motion.div>
-        </div>
+          {features.map((feature) => (
+            <FeatureCard key={feature.id} feature={feature} />
+          ))}
+        </motion.div>
       </div>
     </section>
   );

@@ -21,7 +21,7 @@ export default function Button({ variant = 'primary', children, href }: ButtonPr
       `}
     >
       {children}
-      <img src="/ArrowF.svg" alt="Arrow" className="h-full gap-x-2" />
+      <img src="/ArrowF.svg" alt="Arrow" className="h-full gap-x-2" loading="lazy"/>
     </a>
     </div>
   );

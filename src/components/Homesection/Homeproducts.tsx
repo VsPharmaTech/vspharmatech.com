@@ -20,13 +20,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, imageSrc, link }) => {
           src={imageSrc}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+          loading="lazy"
         />
       </div>
       <div className="p-3">
         <h3 className="text-xl font-semibold text-navy-900">{title}</h3>
         <a href={link} className="text-blue-600 text-lg font-roboto font-bold mt-2 inline-flex items-center gap-x-1">
           Explore
-          <img src="/NextPage.png" alt="Arrow" className="h-4 w-4" />
+          <img src="/NextPage.png" alt="Arrow" className="h-4 w-4" loading="lazy" />
         </a>
         
       </div>

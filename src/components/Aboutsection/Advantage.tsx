@@ -67,6 +67,7 @@ const Advantage = () => {
               alt="VS Pharmatech BFS Machine"
               className="rounded-lg shadow-lg w-full"
               style={{ maxHeight: "500px", objectFit: "contain" }}
+              loading="lazy"
             />
           </motion.div>
 
@@ -84,6 +85,7 @@ const Advantage = () => {
                   src={adv.icon}
                   alt={adv.title}
                   className="w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4"
+                  loading="lazy"
                 />
                 <h4 className="text-xl font-semibold text-slate-900">
                   {adv.title}

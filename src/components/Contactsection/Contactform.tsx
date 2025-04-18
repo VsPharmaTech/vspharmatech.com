@@ -22,6 +22,7 @@ const ContactForm = () => {
               src="/CAdd.svg"
               alt="Address Icon"
               className="w-8 h-8 sm:w-10 sm:h-10 mr-2"
+              loading="lazy"
             />
             <p className="text-gray-700 text-base sm:text-lg font-lato font-medium">
               A/6 & 7, ABM Industrial Estate, Naik Pada Link Road, Near VRL
@@ -35,6 +36,7 @@ const ContactForm = () => {
               src="/CMail.svg"
               alt="Email Icon"
               className="w-8 h-8 sm:w-10 sm:h-10 mr-2"
+              loading="lazy"
             />
             <a
               href="mailto:info.vspharmatech@gmail.com"
@@ -49,6 +51,7 @@ const ContactForm = () => {
               src="/CCall.svg"
               alt="Phone Icon"
               className="w-8 h-8 sm:w-10 sm:h-10 mr-2"
+              loading="lazy"
             />
             <p className="text-gray-700 text-base sm:text-lg font-lato font-medium">
               +91 8087 210 739/9879 226 692
@@ -66,6 +69,7 @@ const ContactForm = () => {
                   src="/FacebookB.svg"
                   alt="Facebook Icon"
                   className="w-6 h-6 sm:w-8 sm:h-8"
+                  loading="lazy"
                 />
               </a>
               <a href="#" className="text-gray-500 hover:text-blue-500">
@@ -73,6 +77,7 @@ const ContactForm = () => {
                   src="/TwitterB.svg"
                   alt="Twitter Icon"
                   className="w-6 h-6 sm:w-8 sm:h-8"
+                  loading="lazy"
                 />
               </a>
               <a href="#" className="text-gray-500 hover:text-blue-500">
@@ -80,6 +85,7 @@ const ContactForm = () => {
                   src="/WhatsAppB.svg"
                   alt="WhatsApp Icon"
                   className="w-6 h-6 sm:w-8 sm:h-8"
+                  loading="lazy"
                 />
               </a>
             </div>

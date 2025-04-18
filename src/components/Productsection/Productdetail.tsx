@@ -39,42 +39,46 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-xl shadow-lg sm:mx-auto max-w-auto lg:max-w-5xl p-6 md:p-8" data-aos="fade-up">
+    <div className="relative overflow-hidden border-2 border-neutral-600 rounded-2xl lg:rounded-3xl shadow-md sm:mx-auto max-w-auto lg:max-w-5xl p-6 md:p-8 lg:p-10" data-aos="fade-up">
       {/* Background Gradient */}
-      <img
+      {/* <img
         src="/Background-gradient-u.svg"
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-60"
         style={{ zIndex: -1 }}
-      />
+      /> */}
+
+      {/* Solid Blue Background */}
+      <div className="absolute inset-0 w-full h-full bg-blue-50" style={{ zIndex: -1 }}/>
 
       <div className="relative">
         {/* Title */}
         <h2 className="text-xl sm:text-2xl font-raleway font-bold text-slate-900 mt-2">{title}</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-4 sm:mt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mt-4 sm:mt-6 lg:mt-8">
           {/* Image */}
           <div className="rounded-lg overflow-hidden h-full md:h-[250px] lg:h-[300px] w-full object-contain">
             <img
               src={imageSrc}
               alt={title}
               className="w-full h-full object-cover"
+              loading="lazy"
             />
           </div>
 
           {/* Description and Features */}
           <div>
-            <p className="text-gray-700 font-raleway text-sm sm:text-base mb-2">{description}</p>
-            <p className="text-gray-700 font-raleway text-sm sm:text-base mb-4 sm:mb-8">{additionalDescription}</p>
+            <p className="text-gray-700 font-inter font-medium text-sm sm:text-base mb-2">{description}</p>
+            <p className="text-gray-700 font-inter font-medium text-sm sm:text-base mb-4 sm:mb-8">{additionalDescription}</p>
             <ul className="list-none pl-0">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-start mb-2 sm:mb-3">
                   <img
                     src="/Checkmark.png"
-                    alt="tick"
+                    alt="Tick Mark"
                     className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
                   />
-                  <span className="text-gray-700 font-raleway text-sm sm:text-base font-medium">{feature}</span>
+                  <span className="text-gray-700 font-inter text-sm sm:text-base font-semibold">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -85,18 +89,19 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
         <div className="flex justify-start mt-4 sm:mt-6 space-x-2 sm:space-x-4">
           <button
             onClick={toggleExpanded}
-            className="flex items-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-3 sm:px-6 rounded transition-colors duration-300 hover:shadow-md text-base"
+            className="flex items-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-3 sm:px-6 rounded-full transition-colors duration-300 hover:shadow-md text-base"
           >
             {isExpanded ? 'View Less' : 'View Details'}
             <img
               src={isExpanded ? '/Double-ArrowU.png' : '/Double-ArrowD.png'}
-              alt="arrow"
+              alt="Arrow"
+              loading="lazy"
               className={`w-4 h-4 ml-1 sm:ml-2 transform transition-transform duration-300`}
             />
           </button>
-          <a href="/contact/#contactform" className="flex items-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 sm:px-6 rounded transition-colors duration-300 hover:shadow-md text-base">
+          <a href="/contact/#contactform" className="flex items-center bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-3 sm:px-6 rounded-full transition-colors duration-300 hover:shadow-md text-base">
             Get a Quote
-            <img src="/Chatcloud.svg" alt="arrow" className="w-4 h-4 ml-1 sm:ml-2" />
+            <img src="/Chatcloud.svg" alt="arrow" className="w-4 h-4 ml-1 sm:ml-2" loading="lazy"/>
           </a>
         </div>
 
@@ -144,7 +149,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
             {galleryImages.map((image, index) => (
               <div key={index} className="w-1/3 lg:w-1/6 px-2 mb-4 flex flex-col items-center">
                 <div className="rounded-full overflow-hidden w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 hover:scale-110 transition-transform duration-200">
-                  <img src={image} alt={`Gallery Image ${index + 1}`} className="w-full h-full object-cover" />
+                  <img src={image} alt={`Gallery Image ${index + 1}`} className="w-full h-full object-cover" loading="lazy"/>
                 </div>
                 <div className="text-navy-900 text-sm font-medium mt-1 text-center">
                   {imageTitle[index] || 'No Title'}

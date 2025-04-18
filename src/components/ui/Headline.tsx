@@ -26,7 +26,7 @@ const Headline = ({ text }: { text: string }) => {
       <div ref={marqueeRef} className="flex whitespace-nowrap gap-6 animate-marquee">
         {[...Array(10)].map((_, i) => (
           <div key={i} className="flex items-center gap-2 text-gray-800 font-medium">
-            <img src="/Star.png" alt="Star" width={18} height={18} />
+            <img src="/Star.png" alt="Star" width={18} height={18} loading="lazy"/>
             <span>{text}</span>
           </div>
         ))}

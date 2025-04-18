@@ -13,6 +13,8 @@ import "@fontsource-variable/raleway";
 // Supports weights 400-700
 import '@fontsource-variable/lora';
 import '@fontsource/lato';
+// Supports weights 100-900
+import '@fontsource-variable/inter';
 import "../styles/global.css";
 import BaseHead from "../components/BaseHead.astro";
 const { title, description } = Astro.props;
@@ -25,6 +27,7 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="./mainLogoIcon.svg" />
+    <link rel="preload" as="image" href="/bg-hero.png" />
     <meta name="generator" content={Astro.generator} />
     <BaseHead title={title} description={description} />
   </head>

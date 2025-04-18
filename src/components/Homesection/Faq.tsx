@@ -69,7 +69,8 @@ export default function Faq() {
                 <img
                   src={openIndex === index ? "/Minus.png" : "/Plus.png"}
                   alt="Toggle"
-                  className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 transition-transform duration-300 ml-3" // Added ml-3
+                  className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 transition-transform duration-300 ml-3"
+                  loading="lazy" // Added ml-3
                 />
               </button>
 

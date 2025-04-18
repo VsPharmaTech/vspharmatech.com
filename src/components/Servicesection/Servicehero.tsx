@@ -36,6 +36,7 @@ export default function SHero() {
         src="/background-gradient.png"
         className="absolute inset-0 w-full h-full object-cover"
         aria-hidden="true"
+        alt=""
       />
 
       {/* Hero Content */}

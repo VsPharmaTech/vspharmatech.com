@@ -10,6 +10,7 @@ export default function PHero() {
         src="/background-gradient.png"
         className="absolute inset-0 w-full h-[80%] object-cover"
         aria-hidden="true"
+        alt=""
       />
 
       {/* Hero Content */}

@@ -38,6 +38,7 @@ export default function ServiceDetail({
           <motion.img
             src={imageSrc}
             alt={title}
+            loading="lazy"
             className="w-full h-auto object-cover rounded-xl"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -94,6 +95,7 @@ export default function ServiceDetail({
                   alt="Check"
                   className="w-5 h-5 sm:w-6 sm:h-6 mt-1"
                   whileHover={{ scale: 1.2 }}
+                  loading="lazy"
                 />
                 <span className="text-gray-700 text-base sm:text-lg font-medium">{point}</span>
               </motion.li>
@@ -112,7 +114,7 @@ export default function ServiceDetail({
           >
             <MainButton href="/contact/#contactform" variant="primary" className="gap-2">
               Get a quote
-              <img src="/ArrowF.svg" alt="Arrow" className="w-4 sm:w-5" />
+              <img src="/ArrowF.svg" alt="Arrow" className="w-4 sm:w-5" loading="lazy"/>
             </MainButton>
           </motion.div>
         </motion.div>

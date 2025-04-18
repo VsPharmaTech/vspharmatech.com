@@ -69,7 +69,7 @@ const Values = () => {
               <div
                 className={`flex items-center justify-center`}
               >
-                <img src={value.icon} alt={value.title} className="w-16 h-16 sm:w-20 sm:h-20" />
+                <img src={value.icon} alt={value.title} className="w-16 h-16 sm:w-20 sm:h-20" loading="lazy"/>
               </div>
               <h4 className="text-xl font-semibold text-blue-700 mt-3 sm:mt-4">
                 {value.title}

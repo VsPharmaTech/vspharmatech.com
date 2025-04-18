@@ -37,6 +37,7 @@ export default function OurServices() {
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
         aria-hidden="true"
+        loading="lazy"
       />
 
       <motion.div

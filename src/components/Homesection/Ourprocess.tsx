@@ -43,6 +43,7 @@ const ArrowSVG = ({ delay }: { delay: number }) => (
     src="/Curvyarrow.png"
     alt="Curved arrow"
     className="w-16 opacity-0 lg:block hidden"
+    loading="lazy"
     initial={{ opacity: 0, scale: 0.5 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.6, delay }}
@@ -105,6 +106,7 @@ export default function Process() {
                   src={step.icon}
                   alt={`${step.title} process`}
                   className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain"
+                  loading="lazy"
                 />
               </motion.div>
 

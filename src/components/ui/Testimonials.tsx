@@ -81,12 +81,14 @@ export default function Testimonials() {
                 src={testimonials[index].image}
                 alt={testimonials[index].name}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             <img
               src="/Quote.png"
               alt="Quote"
               className="w-6 sm:w-8 lg:w-12 h-6 sm:h-8 lg:h-12 absolute -top-3 -right-2 sm:-top-4 sm:-right-4 lg:top-8 lg:right-8 opacity-20"
+              loading="lazy"
             />
             {/* Testimonial Content */}
             <div className="flex-1 mt-3 sm:mt-4 md:mt-0 px-4 lg:px-6 relative text-center md:text-left">

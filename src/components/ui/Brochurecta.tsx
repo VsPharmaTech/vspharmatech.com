@@ -21,7 +21,7 @@ const BrochureCta: React.FC = () => {
       
       <MainButton href="https://drive.google.com/file/d/1q-kOb7o_YZokTURcbR4-KjsfDl2Bj-0p/view?usp=sharing" variant="primary" className="gap-2 mt-6 sm:mt-8">
         Download Our Brochure
-        <img src="/ArrowF.svg" alt="Arrow" className="w-4 sm:w-5" />
+        <img src="/ArrowF.svg" alt="Arrow" className="w-4 sm:w-5" loading="lazy"/>
       </MainButton>
     </section>
   );

@@ -34,10 +34,7 @@ const currentPath = Astro.url.pathname;
         return (
           <a
             href={item.href}
-            class:list={[
-              'text-gray-600 text-base font-roboto hover:text-blue-600 transition-colors',
-              { 'text-blue-600 font-semibold': isActive }, // Highlight if active
-            ]}
+            class={`${isActive ? "text-blue-600 font-semibold" : ""} text-gray-600 text-base font-roboto hover:text-blue-600 transition-colors`}
             data-href={item.href}
           >
             {item.label}
@@ -50,7 +47,7 @@ const currentPath = Astro.url.pathname;
     <div class="hidden lg:block">
       <Button href="/contact/#contactform">
         <span class="flex items-center gap-x-2">
-          <img class="h-full hidden xl:flex" src="/Chatcloud.svg" />
+          <img class="h-full hidden xl:flex" src="/Chatcloud.svg" alt=""/>
           Get a quote
         </span>
       </Button>

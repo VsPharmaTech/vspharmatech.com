@@ -140,7 +140,7 @@ const ProductTags: React.FC = () => {
         },
         {
             title: 'Custom BFS Moulds & Spare Parts',
-            description: 'Durable and corrosion-resistant moulds customized to create unique container shapes and sizes, with options for embossing logos or product-specific markings, these moulds ensure a consistent quality that aligns with stringent industry standards.',
+            description: 'Durable and corrosion-resistant moulds for creating customized container shapes & sizes, these moulds ensure a consistent quality that aligns with stringent industry standards.',
             imageSrc:
                 '/The-Mould.png',
             category: 'BFS Moulds',
@@ -155,24 +155,24 @@ const ProductTags: React.FC = () => {
             galleryImages: [
                 './Mould-Carriage.png',
                 './Extruder-Head.png',
-                './Hot-Knife.png',
                 './Products2.png',
-                './The-Mould.png',
+                './SVPMould.jpg',
+                './LVPMould.jpg',
                 './Closing-Unit.png',
             ],
 
-            imageTitle: ['Mould Carriage', 'Extruder Head', 'Cutting Device','Parison Holder', 'The Moulds', 'Mould Closing Unit'],
+            imageTitle: ['Mould Carriage', 'Extruder Head', 'Parison Holder','SVP Mould', 'LVP Mould', 'Mould Closing Unit'],
 
             additionalDescription: 'Custom moulds designed to meet your specific requirements.',
         },
 
         {
             title: 'Industry based Finished Products',
-            description: 'Our BFS technology enables the production of a wide range of industry-specific finished products, ensuring sterility, precision, and compliance with global pharmaceutical standards. From injectables to IV fluids, our BFS solutions cater to the highest demands of the pharmaceutical, biotech, and healthcare industries.',
+            description: 'Our BFS technology enables the production of a wide range of industry-specific finished products, ensuring sterility and compliance with global pharmaceutical standards. Our BFS solutions cater to the highest demands of the healthcare & pharmaceutical industries.',
             imageSrc:
                 './Finishedproducts.jpg',
             category: 'Finished Products',
-            features: ['Supports various container shapes, sizes, and dosing formats, tailored to meet the specific Industry applications.', 'Sealed, sterile environment, eliminating human intervention and minimizing contamination risks.', 'Regulatory Compliance and High-Quality Standards'],
+            features: ['Supports various container shapes & sizes, tailored to meet the specific Industry applications.', 'Sealed, sterile environment, eliminating human intervention and minimizing contamination risks.', 'Regulatory Compliance and High-Quality Standards'],
             tableData: {
                 header: [],
                 rows: [],
@@ -248,7 +248,7 @@ const ProductTags: React.FC = () => {
                 </div>
 
                 {/* Product Detail Cards */}
-                <div className="grid grid-cols-1 gap-6 sm:gap-8">
+                <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:gap-10">
                     {filteredProducts.slice(0, 2).map((product, index) => (
                         <ProductDetail
                             key={index}
