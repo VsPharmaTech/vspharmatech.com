@@ -69,7 +69,7 @@ const ProductTags: React.FC = () => {
             tableData: {
                 header: ['', 'MODEL', 'STATION', 'MOULDS', 'CONTAINER', 'OUTPUT/HR', 'SIZE OF MACHINE (L, W, H) MM'],
                 rows: [
-                    ['01', 'VS-211', 'DOUBLE STATION', '39-30 CAVITY', '2, 5, 10, 20 ML', '12000-12500', '3500X4000X2500'],
+                    ['01', 'VS-211', 'DOUBLE STATION', '30-30 CAVITY', '2, 5, 10, 20 ML', '12000-12500', '3500X4000X2500'],
                     ['02', 'VS-212', 'DOUBLE STATION', '24-24 CAVITY', '5-10, 20, 30 ML', '9500-10000', '3200X4000X2500'],
                     ['03', 'VS-213', 'SINGLE STATION', '40 CAVITY', '2, 5-10 ML', '8300-8500', '2500X4000X2500'],
                 ],
