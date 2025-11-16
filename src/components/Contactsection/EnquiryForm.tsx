@@ -69,6 +69,7 @@ const EnquiryForm = () => {
 
   return (
     <div className="px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-12 rounded-2xl shadow-xl border-2 border-gray-200">
+      <p className="text-xl text-gray-500 mb-4">Please fill the form in english</p>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="space-y-5 sm:space-y-6 lg:space-y-8"
